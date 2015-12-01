@@ -9,7 +9,7 @@ void PrintHeader() {
 
 void PrintProcessInfo(_PROCESS_CPU processesCpu, _PROCESS_INFO processesInfo) {
 	_tprintf(TEXT("%s"), processesInfo.name);
-	printf("\t\t%d\t%s\t%s\t%1.3f%\t%d KB\n", processesInfo.pid, processesInfo.owner, processesInfo.ownerDomain, processesCpu.cpuUsage, processesInfo.workingSetSize);
+	printf("\t\t%d\t%s\t%s\t%1.3f %%\t\t%d KB\n", processesInfo.pid, processesInfo.owner, processesInfo.ownerDomain, processesCpu.cpuUsage, processesInfo.workingSetSize);
 }
 
 BOOL InitProcessesID(DWORD* pProcessIds, DWORD pIdSize, DWORD* processesCount) {
