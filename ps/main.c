@@ -8,8 +8,9 @@ void PrintHeader() {
 }
 
 void PrintProcessInfo(_PROCESS_CPU processesCpu, _PROCESS_INFO processesInfo) {
-	_tprintf(TEXT("%s"), processesInfo.name);
-	printf("\t\t%d\t%s\t%s\t%1.3f %%\t\t%d KB\n", processesInfo.pid, processesInfo.owner, processesInfo.ownerDomain, processesCpu.cpuUsage, processesInfo.workingSetSize);
+	wprintf(TEXT("%s\t\t%d\t%s\t%s"), processesInfo.name, processesInfo.pid,
+		processesInfo.owner, processesInfo.ownerDomain);
+	printf("\t%1.3f %%\t\t%d KB\n", processesCpu.cpuUsage, processesInfo.workingSetSize);
 }
 
 BOOL InitProcessesID(DWORD* pProcessIds, DWORD pIdSize, DWORD* processesCount) {
@@ -73,6 +74,6 @@ int main() {
 	// move on every process, get its parameters and display them
 	if (!WalkThroughProcesses(processesCount, processesCpu, pProcessIds))
 		return TRUE;
-		
+	
 	return (FALSE);
 }
